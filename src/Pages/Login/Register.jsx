@@ -1,46 +1,60 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const Login = () => {
-    const handleSignIn = event => {
-        event.preventDefault();
-        
 
-        console.log('s')
+const Register = () => {
+    const [error, setError] = useState('')
+
+
+    const handleRegister = event => {
+        event.preventDefault();
+
     }
-    
+
+
     return (
         <div className='px-16'>
             <div className="hero mt-5">
                 <div className="card flex-shrink-0 w-full max-w-sm bg-base-100">
-                    <form onSubmit={handleSignIn} className="card-body border-solid border-2 rounded-lg">
-                        <h1 className="text-xl font-bold">Login</h1>
+                    <form onSubmit={handleRegister} className="card-body border-solid border-2 rounded-lg">
+                        <h1 className="text-xl font-bold">Create an account</h1>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" name='name' required placeholder="Your full Name" className="p-2 border-b-2 border-indigo-500" />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="text" name='photo' required placeholder="Photo URL" className="p-2 border-b-2 border-indigo-500" />
+                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" name='email' required placeholder="Username or Email" className="p-2 border-b-2 border-indigo-500" />
+                            <input type="email" name='email' required placeholder="Username or Email" className="p-2 border-b-2 border-indigo-500" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" name='password' required placeholder="Passowrd" className="p-2 border-b-2 border-indigo-500" />
-                            <label className="label">
-                                <p>
-                                    <input type="checkbox" name="" id="" />
-                                    <span className=''> Remember Me</span>
-                                </p>
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
                         </div>
-                        <div className="form-control mt-6">
-                            <button className="py-2 rounded-md btn-primary hover:bg-blue-400">Login</button>
+
+                        <div>
+                            <p className='text-red-500 text-center'>
+                                <small>{error}</small>
+                            </p>
+                        </div>
+                        <div className="form-control mt-3">
+                            <button className="py-2 rounded-md btn-primary hover:bg-blue-400">Create an account</button>
                         </div>
                         <label className="label">
-                            <Link to="/register" className="label-text-alt link link-hover">Don't have an account? Create an account?</Link>
+                            <Link to="/login" className="label-text-alt link link-hover">Already have an account? Login Now!</Link>
                         </label>
                     </form>
                 </div>
@@ -72,4 +86,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
