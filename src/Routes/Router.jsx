@@ -16,9 +16,13 @@ import ErrorPage from '../Pages/Shared/ErrorPage';
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home></Home>,
+        element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
             {
                 path: '/about',
                 element: <About></About>

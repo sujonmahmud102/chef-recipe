@@ -1,10 +1,16 @@
 import React from 'react';
-import Home from '../Pages/Home/Home';
+import { Outlet } from 'react-router-dom';
+import Navbar from '../Pages/Shared/Navbar';
+import Footer from '../Pages/Shared/Footer';
 
 const Main = () => {
     return (
         <div>
-            <Home></Home>
+            <Navbar></Navbar>
+            <div className='md:min-h-[calc(100vh-341px)]'>
+                <Outlet></Outlet>
+            </div>
+            <Footer></Footer>
         </div>
     );
 };
