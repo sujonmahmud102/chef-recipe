@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const RecipeCard = ({ recipe }) => {
     // console.log(recipe)
 
-    const { name, image } = recipe;
+    const { id, name, image } = recipe;
 
 
     return (
@@ -15,7 +15,7 @@ const RecipeCard = ({ recipe }) => {
                 </figure>
                 <div className="card-body items-center text-justify">
                     <h2 className="card-title">{name}</h2>
-                    <button className="btn btn-active btn-primary hover:bg-blue-400 w-full"><Link to='/recepedetails'>Recipe Details</Link> </button>
+                    <button className="btn btn-active btn-primary hover:bg-blue-400 w-full"><Link to={`/recipes/${id}`}>Recipe Details</Link> </button>
                     <button className="btn btn-outline btn-secondary w-full">Add To Favorite</button>
                 </div>
             </div>
