@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import RecipeCard from '../Cards/RecipeCard';
 
 const ChefRecipe = () => {
     const [chef, setChef] = useState({});
+    const [recipes, setRecipes] = useState([])
+
     const chefData = useLoaderData();
     const { id } = useParams();
 
@@ -15,11 +18,19 @@ const ChefRecipe = () => {
         setChef(displayChefData)
     }, [])
 
+    useEffect(() => {
+        fetch(`http://localhost:5000/chef/${id}`)
+            .then(res => res.json())
+            .then(data => setRecipes(data))
+    }, [])
+
+    console.log(recipes)
+
     return (
-        <div>
-            <div className='bg-slate-200 my-12 mx-16 rounded-xl'>
+        <div className='mx-16'>
+            <div className='bg-slate-200 my-12 rounded-xl'>
                 <div className="px-24 pt-5 flex items-center gap-24 shadow-xl">
-                    <figure className='w-96'><img src={picture} alt="" /></figure>
+                    <figure className='w-96'><img src={picture} alt="Chef Picture" /></figure>
                     <div className="">
                         <div className='ml-12'>
                             <h2 className="text-3xl font-semibold mb-2">{name}</h2>
@@ -31,6 +42,21 @@ const ChefRecipe = () => {
                     </div>
                 </div>
             </div>
+            <div>
+                <h2 className='text-center text-xl font-bold'>
+                    List of recipes from {name}
+                </h2>
+                <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4 my-12'>
+                    {
+                        recipes.map(recipe => <RecipeCard
+                            key={recipe.id}
+                            recipe={recipe}
+                        ></RecipeCard>)
+                    }
+
+                </div>
+            </div>
+
         </div>
     );
 };
