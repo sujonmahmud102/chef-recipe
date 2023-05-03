@@ -6,10 +6,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
-
-
 const Register = () => {
-    const { createdByEmailPass, createdByGoogle, createdByGithub } = useContext(AuthContext);
+    const { createdByEmailPass, createdByGoogle, createdByGithub, updateUserInfo } = useContext(AuthContext);
     const [error, setError] = useState('')
 
     // Toast
@@ -24,7 +22,7 @@ const Register = () => {
         theme: "light",
     });
 
-// handle register
+    // handle register
     const handleRegister = event => {
         event.preventDefault();
 
@@ -40,7 +38,14 @@ const Register = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 notify();
-                setError('')
+                setError('');
+                form.reset();
+                // update profile
+                updateUserInfo(name, photo)
+                    .then()
+                    .catch(error => {
+                        console.log(error)
+                    })
             })
             .catch(error => {
                 console.log(error.message)
@@ -57,7 +62,6 @@ const Register = () => {
                     setError('')
                 }
             })
-        // console.log(name, photo, email, password)
     }
 
     // user create by google

@@ -4,11 +4,9 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
-
     const handleLogOUt = () => {
         logOut();
     }
-
     return (
         <div className="navbar bg-indigo-100 px-16">
             <div className="navbar-start">
@@ -35,7 +33,11 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {user ?
-                    <button onClick={handleLogOUt} className='btn'>Logout</button>
+                    <> <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+                        <img className='rounded-full w-10 h-10 mr-3' src={user.photoURL} alt="" />
+                    </div>
+                        <button onClick={handleLogOUt} className='btn'>Logout</button>
+                    </>
                     :
                     <Link className="btn btn-accent" to='/login'>Login</Link>
                 }

@@ -9,7 +9,8 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const { signInByEmailPass, createdByGoogle, createdByGithub } = useContext(AuthContext);
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     // Toast
     const notify = () => toast.success("Successfully Login", {
@@ -37,7 +38,9 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 notify();
-                setError('')
+                setError('');
+                form.reset();
+                navigate('/');
             })
             .catch(error => {
                 console.log(error.message)
