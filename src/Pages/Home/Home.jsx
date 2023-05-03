@@ -1,6 +1,7 @@
 import React from 'react';
 import ChefCard from '../Cards/ChefCard';
 import HomeBanner from './HomeBanner';
+import RecipeProgram from './RecipeProgram';
 
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
         <div>
             <HomeBanner></HomeBanner>
             <ChefCard></ChefCard>
+            <RecipeProgram></RecipeProgram>
         </div>
     );
 };
