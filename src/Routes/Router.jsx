@@ -12,6 +12,7 @@ import ErrorPage from '../Pages/Shared/ErrorPage';
 import ChefRecipe from '../Pages/ChefRecipe/ChefRecipe';
 import RecipeDetails from '../Pages/ChefRecipe/RecipeDetails';
 import Blog from '../Pages/Blog/Blog';
+import PrivateRoute from './PrivateRoute';
 
 
 
@@ -44,12 +45,12 @@ const router = createBrowserRouter([
             },
             {
                 path: '/chefrecipe/:id',
-                element: <ChefRecipe></ChefRecipe>,
+                element: <PrivateRoute><ChefRecipe></ChefRecipe></PrivateRoute>,
                 loader: ({ params }) => fetch('https://chef-recipe-a10-server-sujonmahmud102.vercel.app/chef')
             },
             {
                 path: '/recipes/:id',
-                element: <RecipeDetails></RecipeDetails>,
+                element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://chef-recipe-a10-server-sujonmahmud102.vercel.app/recipes/${params.id}`)
             }
         ]

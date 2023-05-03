@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,6 +12,8 @@ const Login = () => {
     const [error, setError] = useState('');
     const [passwordType, setPasswordType] = useState('password');
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
 
     // Toast
@@ -52,7 +54,7 @@ const Login = () => {
                 notify();
                 setError('');
                 form.reset();
-                navigate('/');
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error.message)
