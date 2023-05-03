@@ -24,7 +24,7 @@ const ChefRecipe = () => {
             .then(data => setRecipes(data))
     }, [])
 
-    console.log(recipes)
+    // console.log(recipes)
 
     return (
         <div className='mx-16'>
