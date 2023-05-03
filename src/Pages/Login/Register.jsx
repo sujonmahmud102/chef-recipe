@@ -1,21 +1,56 @@
 import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Register = () => {
+    const { createdByEmailPass } = useContext(AuthContext);
     const [error, setError] = useState('')
+
+    // Toast
+    const notify = () => toast.success("Register Successfully Completed", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
 
 
     const handleRegister = event => {
         event.preventDefault();
+
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createdByEmailPass(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                notify()
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+        console.log(name, photo, email, password)
 
     }
 
 
     return (
         <div className='px-16'>
+
             <div className="hero mt-5">
                 <div className="card flex-shrink-0 w-full max-w-sm bg-base-100">
                     <form onSubmit={handleRegister} className="card-body border-solid border-2 rounded-lg">
@@ -52,6 +87,7 @@ const Register = () => {
                         </div>
                         <div className="form-control mt-3">
                             <button className="py-2 rounded-md btn-primary hover:bg-blue-400">Create an account</button>
+                            <ToastContainer />
                         </div>
                         <label className="label">
                             <Link to="/login" className="label-text-alt link link-hover">Already have an account? Login Now!</Link>

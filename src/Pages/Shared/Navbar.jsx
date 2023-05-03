@@ -18,6 +18,7 @@ const Navbar = () => {
                         <li><NavLink to='/'>Home</NavLink> </li>
                         <li><NavLink to='/blog'>Blog</NavLink> </li>
                         <li><NavLink to='/about'>About</NavLink> </li>
+                        <li><NavLink to='/register'>Register</NavLink> </li>
                     </ul>
                 </div>
                 <Link className="btn btn-ghost normal-case text-xl" to='/'>Culinary Master</Link>
@@ -27,6 +28,7 @@ const Navbar = () => {
                     <li><NavLink to='/'>Home</NavLink> </li>
                     <li><NavLink to='/blog'>Blog</NavLink> </li>
                     <li><NavLink to='/about'>About</NavLink> </li>
+                    <li><NavLink to='/register'>Register</NavLink> </li>
                 </ul>
             </div>
             <div className="navbar-end">
