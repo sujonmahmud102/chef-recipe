@@ -7,18 +7,18 @@ const RecipeDetails = () => {
 
     console.log(cooking_method)
     return (
-        <div className='m-16'>
-            <div className='flex items-center justify-center gap-5'>
-                <img className='w-96 h-64 rounded-2xl' src={image} alt="" />
-                <div>
-                    <h3 className='text-center text-2xl font-semibold italic uppercase'>
+        <div className='m-16 lg:flex items-center justify-around'>
+            <div className='gap-5'>
+                <div className='text-center'>
+                    <img className='w-96 h-64 rounded-2xl mx-auto' src={image} alt="" />
+                    <h3 className='mt-4 text-2xl font-semibold italic uppercase'>
                         {name}
                     </h3>
                     <p className='text-center my-5'>Ratings: {rating}</p>
-                    <button className="btn btn-outline btn-secondary w-full">Add To Favorite</button>
+                    <button className="btn btn-outline btn-secondary ">Add To Favorite</button>
                 </div>
             </div>
-            <div className='flex justify-center gap-5 mt-8'>
+            <div className='gap-5 mt-8 md:pl-16'>
                 <div>
                     <h3 className='text-xl font-semibold mb-2'>
                         Ingredients:

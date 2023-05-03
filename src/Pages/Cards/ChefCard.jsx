@@ -5,12 +5,12 @@ const ChefCard = () => {
     const [chefData, setChefData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/chef')
+        fetch('https://chef-recipe-a10-server-sujonmahmud102.vercel.app/chef')
             .then(res => res.json())
             .then(data => setChefData(data))
 
     }, [])
- 
+
     return (
         <div className='px-16 my-8'>
             <h1 className='text-center font-semibold text-2xl'>
@@ -23,7 +23,7 @@ const ChefCard = () => {
                         key={chef.id}
                     >
                         <div className="card card-side bg-base-100 shadow-xl mb-3">
-                            <figure className='w-48'><img src={chef.picture} alt="Movie" /></figure>
+                            <figure className='w-48'><img src={chef.picture} alt={chef.name} /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{chef.name}</h2>
                                 <p>Years of experience: {chef.years_of_experience}</p>

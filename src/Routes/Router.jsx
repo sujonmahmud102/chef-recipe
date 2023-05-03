@@ -45,12 +45,12 @@ const router = createBrowserRouter([
             {
                 path: '/chefrecipe/:id',
                 element: <ChefRecipe></ChefRecipe>,
-                loader: ({ params }) => fetch('http://localhost:5000/chef')
+                loader: ({ params }) => fetch('https://chef-recipe-a10-server-sujonmahmud102.vercel.app/chef')
             },
             {
                 path: '/recipes/:id',
                 element: <RecipeDetails></RecipeDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/recipes/${params.id}`)
+                loader: ({ params }) => fetch(`https://chef-recipe-a10-server-sujonmahmud102.vercel.app/recipes/${params.id}`)
             }
         ]
     },
