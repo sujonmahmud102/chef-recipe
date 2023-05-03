@@ -1,16 +1,91 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
+    const { signInByEmailPass } = useContext(AuthContext);
+    const [error, setError] = useState('')
+
+    // Toast
+    const notify = () => toast.success("Successfully Sign In", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
+
+    // handle signIn
     const handleSignIn = event => {
         event.preventDefault();
-        
 
-        console.log('s')
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        // email password signIn
+        signInByEmailPass(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                notify();
+                setError('')
+            })
+            .catch(error => {
+                console.log(error.message)
+                if (error.message === 'Firebase: Error (auth/user-not-found).') {
+                    setError('User not found with this email')
+                }
+
+                else if (error.message === 'Firebase: Error (auth/wrong-password).') {
+                    setError('Wrong password')
+                }
+
+                else {
+                    setError('')
+                }
+
+            })
+        console.log(email, password)
+
     }
-    
+
+    // signIn by google
+    const registerByGoogle = () => {
+        const provider = new GoogleAuthProvider;
+        createdByGoogle(provider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                notify();
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+    // signIn by github
+    const registerByGithub = () => {
+        const provider = new GithubAuthProvider;
+        createdByGithub(provider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                notify();
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     return (
         <div className='px-16'>
             <div className="hero mt-5">
@@ -36,8 +111,14 @@ const Login = () => {
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
-                        <div className="form-control mt-6">
+                        <div>
+                            <p className='text-red-500 text-center'>
+                                <small>{error}</small>
+                            </p>
+                        </div>
+                        <div className="form-control mt-4">
                             <button className="py-2 rounded-md btn-primary hover:bg-blue-400">Login</button>
+                            <ToastContainer />
                         </div>
                         <label className="label">
                             <Link to="/register" className="label-text-alt link link-hover">Don't have an account? Create an account?</Link>

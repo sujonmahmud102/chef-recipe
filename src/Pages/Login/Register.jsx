@@ -4,12 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 
 const Register = () => {
-    const { createdByEmailPass, createdByGoogle } = useContext(AuthContext);
+    const { createdByEmailPass, createdByGoogle, createdByGithub } = useContext(AuthContext);
     const [error, setError] = useState('')
 
     // Toast
@@ -24,7 +24,7 @@ const Register = () => {
         theme: "light",
     });
 
-
+// handle register
     const handleRegister = event => {
         event.preventDefault();
 
@@ -76,6 +76,19 @@ const Register = () => {
             })
     }
 
+    // register by github
+    const registerByGithub = () => {
+        const provider = new GithubAuthProvider;
+        createdByGithub(provider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                notify();
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     return (
         <div className='px-16'>
@@ -138,7 +151,7 @@ const Register = () => {
                         Continue With Google
                     </button>
                 </div>
-                <div className='flex justify-center items-center btn btn-outline mt-2'>
+                <div onClick={registerByGithub} className='flex justify-center items-center btn btn-outline mt-2'>
                     <div>
                         <FaGithub></FaGithub>
                     </div>
