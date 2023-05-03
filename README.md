@@ -1,5 +1,5 @@
 ## Live Link
-Hosted in Firebase -> (https://chef-recipe-65fc6.web.app/)
+Hosted Client Side in Firebase -> (https://chef-recipe-65fc6.web.app/)
 
 ## Live Link
 Hosted Server in Vercel -> (https://chef-recipe-a10-server-sujonmahmud102.vercel.app)

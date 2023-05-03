@@ -4,15 +4,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 
 const Register = () => {
-    const { createdByEmailPass } = useContext(AuthContext);
+    const { createdByEmailPass, createdByGoogle } = useContext(AuthContext);
     const [error, setError] = useState('')
 
     // Toast
-    const notify = () => toast.success("Register Successfully Completed", {
+    const notify = () => toast.success("Registration Successfully Completed", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -33,18 +34,46 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        // email password register
         createdByEmailPass(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                notify()
+                notify();
+                setError('')
+            })
+            .catch(error => {
+                console.log(error.message)
+                if (error.message === 'Firebase: Error (auth/invalid-email).') {
+                    setError('Please provide valid email')
+                }
+                else if (error.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
+                    setError('Password should be at least 6 characters')
+                }
+                else if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
+                    setError('Already account created with this email')
+                }
+                else {
+                    setError('')
+                }
+
+            })
+        console.log(name, photo, email, password)
+
+    }
+
+    // register by google
+    const registerByGoogle = () => {
+        const provider = new GoogleAuthProvider;
+        createdByGoogle(provider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                notify();
             })
             .catch(error => {
                 console.log(error)
             })
-
-        console.log(name, photo, email, password)
-
     }
 
 
@@ -101,7 +130,7 @@ const Register = () => {
                 <hr style={{ width: '150px' }} />
             </div>
             <div className='w-1/4 mx-auto mt-4 mb-8 flex justify-center flex-col'>
-                <div className='flex justify-center items-center btn btn-outline btn-accent'>
+                <div onClick={registerByGoogle} className='flex justify-center items-center btn btn-outline btn-accent'>
                     <div>
                         <FaGoogle></FaGoogle>
                     </div>
