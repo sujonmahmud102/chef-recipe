@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FaGoogle, FaGithub } from "react-icons/fa";
+import { FaGoogle, FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,7 +10,9 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
     const { signInByEmailPass, createdByGoogle, createdByGithub } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const [passwordType, setPasswordType] = useState('password');
     const navigate = useNavigate();
+
 
     // Toast
     const notify = () => toast.success("Successfully Login", {
@@ -23,6 +25,16 @@ const Login = () => {
         progress: undefined,
         theme: "light",
     });
+
+    // handle password type change
+    const handlePassType = () => {
+        if (passwordType === 'password') {
+            setPasswordType('text')
+        }
+        else {
+            setPasswordType('password')
+        }
+    }
 
     // handle signIn
     const handleSignIn = event => {
@@ -100,16 +112,22 @@ const Login = () => {
                             </label>
                             <input type="text" name='email' required placeholder="Username or Email" className="p-2 border-b-2 border-indigo-500" />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' required placeholder="Passowrd" className="p-2 border-b-2 border-indigo-500" />
+                            <input type={passwordType} name='password' required placeholder="Passowrd" className="p-2 pr-10 border-b-2 border-indigo-500" />
+                            <div className="absolute right-1 top-10 p-2 rounded-md" onClick={handlePassType}>
+                                {
+                                    passwordType === 'password' ?
+                                        <span>  < FaEye ></FaEye></span>
+                                        :
+                                        <span> <FaEyeSlash></FaEyeSlash></span>
+                                }
+                            </div>
+                        </div>
+                        <div className="form-control">
                             <label className="label">
-                                <p>
-                                    <input type="checkbox" name="" id="" />
-                                    <span className=''> Remember Me</span>
-                                </p>
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
@@ -127,7 +145,7 @@ const Login = () => {
                         </label>
                     </form>
                 </div>
-            </div>
+            </div >
             <div className='mt-4 flex items-center justify-center'>
                 <hr style={{ width: '150px' }} />
                 <p className='mx-4'>Or</p>
@@ -151,7 +169,7 @@ const Login = () => {
                     </button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
