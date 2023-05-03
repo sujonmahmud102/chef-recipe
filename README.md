@@ -9,4 +9,4 @@ Cliet Side Code Link -> (https://github.com/programming-hero-web-course-4/b7a10-
 
 
 ## Starter Template
-Server Side Link -> (https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-server-side-sujonmahmud102)
+Server Side Code Link -> (https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-server-side-sujonmahmud102)

@@ -8,11 +8,11 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
-    const { signInByEmailPass } = useContext(AuthContext);
+    const { signInByEmailPass, createdByGoogle, createdByGithub } = useContext(AuthContext);
     const [error, setError] = useState('')
 
     // Toast
-    const notify = () => toast.success("Successfully Sign In", {
+    const notify = () => toast.success("Successfully Login", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -54,11 +54,10 @@ const Login = () => {
                 }
 
             })
-        console.log(email, password)
-
+        // console.log(email, password)
     }
 
-    // signIn by google
+    // user create by google
     const registerByGoogle = () => {
         const provider = new GoogleAuthProvider;
         createdByGoogle(provider)
@@ -72,7 +71,7 @@ const Login = () => {
             })
     }
 
-    // signIn by github
+    // user create by github
     const registerByGithub = () => {
         const provider = new GithubAuthProvider;
         createdByGithub(provider)
@@ -132,7 +131,7 @@ const Login = () => {
                 <hr style={{ width: '150px' }} />
             </div>
             <div className='w-1/4 mx-auto mt-4 mb-8 flex justify-center flex-col'>
-                <div className='flex justify-center items-center btn btn-outline btn-accent'>
+                <div onClick={registerByGoogle} className='flex justify-center items-center btn btn-outline btn-accent'>
                     <div>
                         <FaGoogle></FaGoogle>
                     </div>
@@ -140,7 +139,7 @@ const Login = () => {
                         Continue With Google
                     </button>
                 </div>
-                <div className='flex justify-center items-center btn btn-outline mt-2'>
+                <div onClick={registerByGithub} className='flex justify-center items-center btn btn-outline mt-2'>
                     <div>
                         <FaGithub></FaGithub>
                     </div>

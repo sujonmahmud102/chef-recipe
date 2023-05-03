@@ -56,13 +56,11 @@ const Register = () => {
                 else {
                     setError('')
                 }
-
             })
-        console.log(name, photo, email, password)
-
+        // console.log(name, photo, email, password)
     }
 
-    // register by google
+    // user create by google
     const registerByGoogle = () => {
         const provider = new GoogleAuthProvider;
         createdByGoogle(provider)
@@ -76,7 +74,7 @@ const Register = () => {
             })
     }
 
-    // register by github
+    // user create  by github
     const registerByGithub = () => {
         const provider = new GithubAuthProvider;
         createdByGithub(provider)
