@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import RecipeCard from '../Cards/RecipeCard';
+import LazyLoad from 'react-lazy-load';
 
 const ChefRecipe = () => {
     const [chef, setChef] = useState({});
@@ -30,7 +31,9 @@ const ChefRecipe = () => {
         <div className='mx-16'>
             <div className='bg-slate-200 my-12 rounded-xl'>
                 <div className="px-24 pt-5 flex items-center gap-24 shadow-xl">
-                    <figure className='w-96'><img src={picture} alt="Chef Picture" /></figure>
+                    <LazyLoad width={384} offset={300}>
+                        <img src={picture} alt="Chef Picture" />
+                    </LazyLoad>
                     <div className="">
                         <div className='ml-12'>
                             <h2 className="text-3xl font-semibold mb-2">{name}</h2>

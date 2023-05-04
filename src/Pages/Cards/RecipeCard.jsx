@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,7 +29,9 @@ const RecipeCard = ({ recipe }) => {
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
-                    <img src={image} alt={name} className="rounded-xl w-64 h-48" />
+                    <LazyLoad width={256} height={192} offset={300}>
+                        <img src={image} alt={name} className="rounded-xl" />
+                    </LazyLoad>
                 </figure>
                 <div className="card-body items-center text-justify">
                     <h2 className="card-title">{name}</h2>
