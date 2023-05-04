@@ -23,7 +23,7 @@ const RecipeDetails = () => {
     const handleDisabled = () => {
         setDisabled(!disabled);
     }
-    console.log(cooking_method)
+    
     return (
         <div className='m-16 lg:flex items-center justify-around'>
             <div className='gap-5'>

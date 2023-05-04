@@ -2,6 +2,8 @@ import React from 'react';
 import ChefCard from '../Cards/ChefCard';
 import HomeBanner from './HomeBanner';
 import RecipeProgram from './RecipeProgram';
+import DeliciousRecipe from './DeliciousRecipe';
+
 
 
 const Home = () => {
@@ -9,6 +11,7 @@ const Home = () => {
         <div>
             <HomeBanner></HomeBanner>
             <ChefCard></ChefCard>
+            <DeliciousRecipe></DeliciousRecipe>
             <RecipeProgram></RecipeProgram>
         </div>
     );

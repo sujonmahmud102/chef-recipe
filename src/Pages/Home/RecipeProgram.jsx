@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const RecipeProgram = () => {
     return (
-        <div className='my-8 px-16'>
+        <div className='my-16 px-16'>
             <div className='my-5 text-center'>
                 <p className='text-green-500 font-serif text-xl mb-2'>
                     Best Articles & News
@@ -17,10 +18,7 @@ const RecipeProgram = () => {
                     <div className="card-body">
                         <p className='font-serif'>20 July 2021</p>
                         <h2 className="card-title hover:text-green-500">Fast-food chain, go behind the scenes</h2>
-                        <p className='font-thin'>To fully understand what happens inside the fast food chain, we went along to Kirkby McDonald's to get an exclusive behind the scenes tour...</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Learn More</button>
-                        </div>
+                        <p className='font-thin'>To fully understand what happens inside the fast food chain, we went along to Kirkby McDonald's to get an exclusive behind the scenes tour ... <button className="no-underline btn-link">Learn More</button> </p>
                     </div>
                 </div>
                 <div className="card w-96 bg-base-100 shadow-xl">
@@ -28,10 +26,7 @@ const RecipeProgram = () => {
                     <div className="card-body">
                         <p className='font-serif'>21 July 2021</p>
                         <h2 className="card-title hover:text-green-500">Fast-food chain, go behind the scenes</h2>
-                        <p className='font-thin'>To fully understand what happens inside the fast food chain, we went along to Kirkby McDonald's to get an exclusive behind the scenes tour...</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Learn More</button>
-                        </div>
+                        <p className='font-thin'>To fully understand what happens inside the fast food chain, we went along to Kirkby McDonald's to get an exclusive behind the scenes tour ... <button className="no-underline btn-link">Learn More</button> </p>
                     </div>
                 </div>
                 <div className="card w-96 bg-base-100 shadow-xl">
@@ -39,10 +34,7 @@ const RecipeProgram = () => {
                     <div className="card-body">
                         <p className='font-serif'>22 July 2021</p>
                         <h2 className="card-title hover:text-green-500">Fast-food chain, go behind the scenes</h2>
-                        <p className='font-thin'>To fully understand what happens inside the fast food chain, we went along to Kirkby McDonald's to get an exclusive behind the scenes tour...</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Learn More</button>
-                        </div>
+                        <p className='font-thin'>To fully understand what happens inside the fast food chain, we went along to Kirkby McDonald's to get an exclusive behind the scenes tour ... <button className="no-underline btn-link">Learn More</button> </p>
                     </div>
                 </div>
             </div>

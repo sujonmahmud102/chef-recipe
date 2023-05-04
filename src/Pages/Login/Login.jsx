@@ -50,7 +50,7 @@ const Login = () => {
         signInByEmailPass(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 notify();
                 setError('');
                 form.reset();
@@ -80,8 +80,9 @@ const Login = () => {
         createdByGoogle(provider)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 notify();
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error)
@@ -94,8 +95,9 @@ const Login = () => {
         createdByGithub(provider)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 notify();
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error)

@@ -12,7 +12,7 @@ const ChefCard = () => {
     }, [])
 
     return (
-        <div className='px-16 my-8'>
+        <div className='px-16 my-16'>
             <h1 className='text-center font-semibold text-2xl'>
                 TOP CHEF'S
             </h1>
