@@ -13,6 +13,13 @@ Server Side Code Link -> (https://github.com/programming-hero-web-course-4/b7a10
 
 <<<<<<< HEAD
 ## About My Project
+
+- Recipe websites typically feature a large collection of recipes that are organized by categories such as cuisine, course, dietary restrictions, and ingredient type.  
+- This webite mention American cuisine.
+- User Ratings and Reviews
+- Step-by-Step Instructions for Cooking Method
+- Cooking Tips and Techniques
+
 =======
 ## About My Project
 >>>>>>> ce72d8bf422d6becd4346b67107999032f9ae572
