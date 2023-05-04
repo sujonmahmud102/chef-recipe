@@ -8,7 +8,7 @@ const Navbar = () => {
         logOut();
     }
     return (
-        <div className="navbar bg-indigo-100 px-16">
+        <div className="navbar bg-indigo-100 sm:px-4 md:px-12 lg:px-16">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -21,7 +21,7 @@ const Navbar = () => {
                         <li><NavLink to='/register'>Register</NavLink> </li>
                     </ul>
                 </div>
-                <Link className="btn btn-ghost normal-case text-xl" to='/'>Culinary Master</Link>
+                <Link className="btn btn-ghost normal-case sm:text-sm md:text-xl" to='/'>Culinary Master</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -36,10 +36,10 @@ const Navbar = () => {
                     <> <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
                         <img className='rounded-full w-10 h-10 mr-3' src={user.photoURL} alt="User image" />
                     </div>
-                        <button onClick={handleLogOUt} className='btn'>Logout</button>
+                        <button onClick={handleLogOUt} className='bg-gray-900 text-white p-3 rounded-md sm:btn uppercase'>Logout</button>
                     </>
                     :
-                    <Link className="btn btn-accent" to='/login'>Login</Link>
+                    <Link className="bg-[#37cdbe] text-white p-3 rounded-md sm:btn sm:btn-accent uppercase" to='/login'>Login</Link>
                 }
             </div>
         </div>
