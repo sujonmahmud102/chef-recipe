@@ -12,7 +12,7 @@ const Footer = () => {
                 <a className="link link-hover">Dinner Items</a>
             </div>
             <div>
-                <span className="footer-title">Quik Links</span>
+                <span className="footer-title">Quick Links</span>
                 <Link to='/' className="link link-hover">Home</Link>
                 <Link to='/about' className="link link-hover">About us</Link>
                 <Link to='/blog' className="link link-hover">Blog</Link>

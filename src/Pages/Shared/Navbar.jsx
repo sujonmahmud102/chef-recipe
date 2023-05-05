@@ -5,7 +5,11 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const handleLogOUt = () => {
-        logOut();
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error)
+            })
     }
     return (
         <div className="navbar bg-indigo-100 sm:px-4 md:px-12 lg:px-16">

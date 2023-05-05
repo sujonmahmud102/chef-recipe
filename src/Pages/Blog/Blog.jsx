@@ -6,24 +6,26 @@ import { FaDownload } from "react-icons/fa";
 
 const Blog = () => {
     const generatePdf = () => {
-        const options = {
-            orientation: "p",
-            unit: "mm",
-            format: 'a4',
-        };
+        const doc = new jsPDF();
+        const elementHTML = document.getElementById('content');
 
-        const doc = new jsPDF(options);
-        // console.log(doc)
+        doc.html(elementHTML, {
+            callback: function (doc) {
+                doc.text('This is a blog page.', 15, 150);
 
-        doc.setProperties({
-            title: 'Blog',
-            author: 'Sujon Mahmud',
+                doc.text('Here include four important questions.', 15, 165);
+
+                doc.text('Thanks for Donwloading.', 15, 180);
+                doc.save('Blog.pdf');
+            },
+            margin: [10, 10, 10, 10],
+            autoPaging: 'text',
+            x: 0,
+            y: 0,
+            width: 190,
+            windowWidth: 675
         });
 
-        doc.text(80, 10, 'This is a blog');
-        doc.text(10, 20, document.getElementById("pdf-content").innerText);
-        doc.addPage();
-        doc.save('blog.pdf');
 
     }
     return (
@@ -31,7 +33,7 @@ const Blog = () => {
             <div className='text-center mt-10'>
                 <button onClick={generatePdf} className='btn'><span className='pr-2'><FaDownload /></span> Download as pdf</button>
             </div>
-            <div id="pdf-content" className='m-16'>
+            <div id="content" className='m-16'>
                 <div>
                     <h3 className='text-xl font-semibold mb-2'>
                         Q1: Tell us the differences between uncontrolled and controlled components.
