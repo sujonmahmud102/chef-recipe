@@ -45,16 +45,16 @@ const HomeBanner = () => {
         <div className="relative">
             <div ref={sliderRef} className="keen-slider">
                 <div className="keen-slider__slide number-slide1">
-                    <img className="lg:w-full h-84 md:h-screen" src="https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141353.jpg" alt="" />
+                    <img className="lg:w-full h-[256px] md:h-screen" src="https://img.freepik.com/free-photo/top-view-table-full-delicious-food-composition_23-2149141353.jpg" alt="" />
                 </div>
                 <div className="keen-slider__slide number-slide2">
-                    <img className="lg:w-full h-84 md:h-screen" src="https://img.freepik.com/free-photo/top-view-table-full-delicious-food-assortment_23-2149141342.jpg" alt="" />
+                    <img className="lg:w-full h-[256px] md:h-screen" src="https://img.freepik.com/free-photo/top-view-table-full-delicious-food-assortment_23-2149141342.jpg" alt="" />
                 </div>
                 <div className="keen-slider__slide number-slide3">
-                    <img className="lg:w-full h-84 md:h-screen" src="https://img.freepik.com/free-photo/top-view-food-frame-with-copy-space_23-2148723447.jpg?w=996&t=st=1683127349~exp=1683127949~hmac=3f0d6edd2a288f572083576a181fad2513b8248eb5405deb2b04872de7941857" alt="" />
+                    <img className="lg:w-full h-[256px] md:h-screen" src="https://img.freepik.com/free-photo/top-view-food-frame-with-copy-space_23-2148723447.jpg?w=996&t=st=1683127349~exp=1683127949~hmac=3f0d6edd2a288f572083576a181fad2513b8248eb5405deb2b04872de7941857" alt="" />
                 </div>
                 <div className="keen-slider__slide number-slide4">
-                    <img className="lg:w-full h-84 md:h-screen" src="https://img.freepik.com/free-photo/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table_2829-19739.jpg?w=996&t=st=1683127384~exp=1683127984~hmac=ce1ddf867110570bc57e9730d5b9f1f1f76496738377c2c6a06f187428c8647d" alt="" />
+                    <img className="lg:w-full h-[256px] md:h-screen" src="https://img.freepik.com/free-photo/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table_2829-19739.jpg?w=996&t=st=1683127384~exp=1683127984~hmac=ce1ddf867110570bc57e9730d5b9f1f1f76496738377c2c6a06f187428c8647d" alt="" />
                 </div>
 
             </div>

@@ -105,7 +105,7 @@ const Register = () => {
     }
 
     return (
-        <div className='px-16'>
+        <div className='px-4 py-6 md:py-12 md:px-16'>
 
             <div className="hero mt-5">
                 <div className="card flex-shrink-0 w-full max-w-sm bg-base-100">
@@ -164,7 +164,7 @@ const Register = () => {
                 <p className='mx-4'>Or</p>
                 <hr style={{ width: '150px' }} />
             </div>
-            <div className='w-1/4 mx-auto mt-4 mb-8 flex justify-center flex-col'>
+            <div className='md:w-1/4 mx-auto mt-4 mb-8 flex justify-center flex-col'>
                 <div onClick={registerByGoogle} className='flex justify-center items-center btn btn-outline btn-accent'>
                     <div>
                         <FaGoogle></FaGoogle>
@@ -173,7 +173,7 @@ const Register = () => {
                         Continue With Google
                     </button>
                 </div>
-                <div onClick={registerByGithub} className='flex justify-center items-center btn btn-outline mt-2'>
+                <div onClick={registerByGithub} className='flex justify-center items-center w-full btn btn-outline mt-2'>
                     <div>
                         <FaGithub></FaGithub>
                     </div>

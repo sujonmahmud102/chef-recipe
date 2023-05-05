@@ -6,7 +6,7 @@ const DeliciousRecipe = () => {
 
 
     return (
-        <div className='my-16 px-4 py-6 md:py-12 md:px-16 bg-slate-300'>
+        <div className='mb-16 px-4 py-6 md:py-12 md:px-16 bg-slate-300'>
             <div className='mb-5 text-center'>
                 <p className='text-green-500 font-serif text-lg md:text-xl mb-2'>
                     Delicious Taste of

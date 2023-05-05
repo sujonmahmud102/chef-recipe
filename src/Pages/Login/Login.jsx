@@ -109,7 +109,7 @@ const Login = () => {
     }
 
     return (
-        <div className='px-16'>
+        <div className='px-4 py-6 md:py-12 md:px-16'>
             <div className="hero mt-5">
                 <div className="card flex-shrink-0 w-full max-w-sm bg-base-100">
                     <form onSubmit={handleSignIn} className="card-body border-solid border-2 rounded-lg">
@@ -159,7 +159,7 @@ const Login = () => {
                 <p className='mx-4'>Or</p>
                 <hr style={{ width: '150px' }} />
             </div>
-            <div className='w-1/4 mx-auto mt-4 mb-8 flex justify-center flex-col'>
+            <div className='md:w-1/4 mx-auto mt-4 mb-8 flex justify-center flex-col'>
                 <div onClick={registerByGoogle} className='flex justify-center items-center btn btn-outline btn-accent'>
                     <div>
                         <FaGoogle></FaGoogle>
