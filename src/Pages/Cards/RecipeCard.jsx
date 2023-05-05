@@ -29,9 +29,9 @@ const RecipeCard = ({ recipe }) => {
         <div className=' px-4 py-6 md:py-12'>
             <div className="lg:flex bg-base-100 shadow-xl rounded-2xl border border-orange-300">
                 <div className="p-10 text-center">
-                    <h2 className="lg:text-3xl lg:font-semibold mb-3">{name}</h2>
+                    <h2 className="text-xl lg:text-3xl font-medium lg:font-semibold mb-3">{name}</h2>
                     <LazyLoad offset={300}>
-                        <img src={image} alt={name} className="w-72 h-36  g:w-[600px] lg:h-[300px] rounded-xl" />
+                        <img src={image} alt={name} className="w-72 h-36  lg:w-[600px] lg:h-[300px] rounded-xl" />
                     </LazyLoad>
                     <p className='text-sm my-3'>Ratings: {rating}</p>
                     <button onClick={() => { notify(), handleDisabled() }} disabled={disabled} className="btn btn-outline btn-secondary w-3/4">Add To Favorite</button>

@@ -29,11 +29,11 @@ const Blog = () => {
 
     }
     return (
-        <div >
-            <div className='text-center mt-10'>
+        <div>
+            <div className='text-center mt-5 lg:mt-10'>
                 <button onClick={generatePdf} className='btn'><span className='pr-2'><FaDownload /></span> Download as pdf</button>
             </div>
-            <div id="content" className='m-16'>
+            <div id="content" className='m-6 lg:m-16'>
                 <div>
                     <h3 className='text-xl font-semibold mb-2'>
                         Q1: Tell us the differences between uncontrolled and controlled components.

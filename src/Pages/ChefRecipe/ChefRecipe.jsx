@@ -36,6 +36,9 @@ const ChefRecipe = () => {
 
     return (
         <div className='px-4 py-3 md:py-12 md:px-16'>
+            <h2 className='text-center uppercase text-2xl lg:text-4xl font-semibold'>
+            Chef Detail
+            </h2>
             <div className='bg-slate-200 my-12 rounded-xl'>
                 <div className="px-6 lg:px-24 pt-5 lg:flex items-center gap-24 shadow-xl">
                     <LazyLoad offset={300}>
@@ -73,7 +76,7 @@ const ChefRecipe = () => {
                 </div>
             </div>
             <div>
-                <h2 className='text-center text-5xl font-bold'>
+                <h2 className='text-center text-2xl lg:text-5xl font-semibold lg:font-bold'>
                     List of recipes from {name}
                 </h2>
                 <div className=''>
