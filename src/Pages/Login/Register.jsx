@@ -110,7 +110,12 @@ const Register = () => {
             <div className="hero mt-5">
                 <div className="card flex-shrink-0 w-full max-w-sm bg-base-100">
                     <form onSubmit={handleRegister} className="card-body border-solid border-2 rounded-lg">
-                        <h1 className="text-xl font-bold">Create an account</h1>
+                        <div>
+                            <h1 className="text-xl font-bold">Create an account</h1>
+                            <p className='text-red-500 text-center mt-3'>
+                                <small>{error}</small>
+                            </p>
+                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -142,12 +147,6 @@ const Register = () => {
                                         <span> <FaEyeSlash></FaEyeSlash></span>
                                 }
                             </div>
-                        </div>
-
-                        <div>
-                            <p className='text-red-500 text-center'>
-                                <small>{error}</small>
-                            </p>
                         </div>
                         <div className="form-control mt-3">
                             <button className="py-2 rounded-md btn-primary hover:bg-blue-400">Create an account</button>

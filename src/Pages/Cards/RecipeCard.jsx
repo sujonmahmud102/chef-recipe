@@ -9,8 +9,6 @@ const RecipeCard = ({ recipe }) => {
     const [disabled, setDisabled] = useState(false);
     const { id, name, image, cooking_method, ingredients, rating } = recipe;
 
-    console.log(ingredients.length)
-
     // toast
     const notify = () => toast.success('Added to this recipe on favorite', {
         position: "top-center",
@@ -28,47 +26,53 @@ const RecipeCard = ({ recipe }) => {
     }
 
     return (
-        <div>
-            <div className="card w-96 h-screen bg-base-100 shadow-xl">
-                <figure className="px-10 pt-10">
-                    <LazyLoad width={256} height={192} offset={300}>
-                        <img src={image} alt={name} className="rounded-xl" />
+        <div className=' px-4 py-6 md:py-12'>
+            <div className="lg:flex bg-base-100 shadow-xl rounded-2xl border border-orange-300">
+                <div className="p-10 text-center">
+                    <h2 className="lg:text-3xl lg:font-semibold mb-3">{name}</h2>
+                    <LazyLoad offset={300}>
+                        <img src={image} alt={name} className="w-72 h-36  g:w-[600px] lg:h-[300px] rounded-xl" />
                     </LazyLoad>
-                </figure>
-                <div className="card-body items-center text-justify">
-                    <h2 className="card-title">{name}</h2>
-                    <p className='text-sm'>Ratings: {rating}</p>
-                    <div>
-                        <h2 className='text-xl font-semibold'>
-                            Ingredients:
-                        </h2>
-                        {ingredients &&
-                            <ul>
-                                <li>{ingredients.slice(0, 2)} ...
-                                    <span className="no-underline btn-link hover:bg-blue-400"><Link to={`/recipes/${id}`}>Recipe Details</Link> </span>
-                                </li>
-                            </ul>
-                        }
-                    </div>
-                    <div>
-                        <h2 className='text-xl font-semibold'>
-                            Cooking Method:
-                        </h2>
-                        {cooking_method &&
-                            <ul>
-                                <li>{cooking_method.slice(0, 2)} ...
-                                    <span className="no-underline btn-link hover:bg-blue-400"><Link to={`/recipes/${id}`}>Recipe Details</Link>
-                                    </span>
-                                </li>
-                            </ul>
-                        }
-                    </div>
-                    <button onClick={() => { notify(), handleDisabled() }} disabled={disabled} className="btn btn-outline btn-secondary w-full">Add To Favorite</button>
+                    <p className='text-sm my-3'>Ratings: {rating}</p>
+                    <button onClick={() => { notify(), handleDisabled() }} disabled={disabled} className="btn btn-outline btn-secondary w-3/4">Add To Favorite</button>
                     <ToastContainer />
+                </div>
+                <div className="">
+
+                    <div className='lg:flex lg:items-start lg:justify-evenly lg:p-10'>
+                        <div className='lg:w-[50%] pl-8 pr-5'>
+                            <h2 className='text-xl font-semibold mb-2'>
+                                Ingredients:
+                            </h2>
+                            {
+                                ingredients.map((item, i) =>
+                                    <ul
+                                        key={i}
+                                        className='list-disc'>
+                                        <li>{item}
+                                        </li>
+                                    </ul>)
+                            }
+                        </div>
+                        <div className='lg:w-[50%] mb-4 text-justify pl-8 pr-5'>
+                            <h2 className='text-xl font-semibold my-2'>
+                                Cooking Method:
+                            </h2>
+                            {
+                                cooking_method.map((item, i) =>
+                                    <ul
+                                        key={i}
+                                        className='list-disc'>
+                                        <li>{item}
+                                        </li>
+                                    </ul>)
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 };
 

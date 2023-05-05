@@ -55,6 +55,7 @@ const Login = () => {
                 setError('');
                 form.reset();
                 navigate(from, { replace: true });
+                location.reload();
             })
             .catch(error => {
                 console.log(error.message)
@@ -113,7 +114,12 @@ const Login = () => {
             <div className="hero mt-5">
                 <div className="card flex-shrink-0 w-full max-w-sm bg-base-100">
                     <form onSubmit={handleSignIn} className="card-body border-solid border-2 rounded-lg">
-                        <h1 className="text-xl font-bold">Login</h1>
+                        <div>
+                            <h1 className="text-xl font-bold">Login</h1>
+                            <p className='text-red-500 text-center mt-3'>
+                                <small>{error}</small>
+                            </p>
+                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -138,11 +144,6 @@ const Login = () => {
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
-                        </div>
-                        <div>
-                            <p className='text-red-500 text-center'>
-                                <small>{error}</small>
-                            </p>
                         </div>
                         <div className="form-control mt-4">
                             <button className="py-2 rounded-md btn-primary hover:bg-blue-400">Login</button>

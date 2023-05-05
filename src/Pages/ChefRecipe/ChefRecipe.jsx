@@ -35,38 +35,37 @@ const ChefRecipe = () => {
     // console.log(recipes)
 
     return (
-        <div className='mx-16'>
+        <div className='px-4 py-3 md:py-12 md:px-16'>
             <div className='bg-slate-200 my-12 rounded-xl'>
-                <div className="px-24 pt-5 flex items-center gap-24 shadow-xl">
-                    <LazyLoad width={384} offset={300}>
-                        <img src={picture} alt="Chef Picture" />
+                <div className="px-6 lg:px-24 pt-5 lg:flex items-center gap-24 shadow-xl">
+                    <LazyLoad offset={300}>
+                        <img className='w-full lg:w-64' src={picture} alt="Chef Picture" />
                     </LazyLoad>
                     <div className="">
-                        <div className='ml-12'>
-                            <h2 className="text-3xl font-semibold mb-2">{name}</h2>
-                            <p className='text-gray-500 mb-2 w-96'><small>{bio}</small></p>
-                            {/*  */}
-                            <ul>
-                                <li className='flex'>
-                                    <strong className='flex items-center gap-2 font-medium'>
+                        <div className='lg:ml-12'>
+                            <h2 className="text-xl lg:text-3xl font-semibold my-3">{name}</h2>
+                            <p className='text-sm lg:text-base text-gray-500 mb-2 lg:w-96'><small>{bio}</small></p>
+                            <ul className='pb-5'>
+                                <li className='flex items-center'>
+                                    <strong className='flex items-center gap-2 font-normal lg:font-medium'>
                                         <HiBriefcase></HiBriefcase>
                                         <span>Years of experience:</span>
                                     </strong>
-                                    <span className='ml-12'>{years_of_experience}</span>
+                                    <span className='text-xs lg:text-base font-medium ml-6 lg:ml-12'>{years_of_experience}</span>
                                 </li>
-                                <li className='flex'>
-                                    <strong className='flex items-center gap-2 font-medium'>
+                                <li className='flex items-center'>
+                                    <strong className='flex items-center gap-2 font-normal lg:font-medium'>
                                         <BsFillBagPlusFill></BsFillBagPlusFill>
                                         <span>Numbers of recipes:</span>
                                     </strong>
-                                    <span className='ml-12'>{num_recipes}</span>
+                                    <span className='text-xs lg:text-base font-medium ml-6 lg:ml-12'>{num_recipes}</span>
                                 </li>
-                                <li className='flex'>
-                                    <strong className='flex items-center justify-between gap-2 font-medium'>
+                                <li className='flex items-center'>
+                                    <strong className='flex items-center gap-2 font-normal lg:font-medium'>
                                         <AiFillLike></AiFillLike>
                                         <span> Likes:</span>
                                     </strong>
-                                    <span className='ml-12'>{likes}</span>
+                                    <span className='text-xs lg:text-base font-medium ml-6 lg:ml-12'>{likes}</span>
                                 </li>
                             </ul>
                         </div>
@@ -74,10 +73,10 @@ const ChefRecipe = () => {
                 </div>
             </div>
             <div>
-                <h2 className='text-center text-xl font-bold'>
+                <h2 className='text-center text-5xl font-bold'>
                     List of recipes from {name}
                 </h2>
-                <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4 my-12'>
+                <div className=''>
                     {
                         recipes.map(recipe => <RecipeCard
                             key={recipe.id}
