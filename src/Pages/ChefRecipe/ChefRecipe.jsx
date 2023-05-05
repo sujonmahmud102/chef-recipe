@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import RecipeCard from '../Cards/RecipeCard';
 import LazyLoad from 'react-lazy-load';
+import { HiBriefcase } from "react-icons/hi2";
+import { BsFillBagPlusFill } from "react-icons/bs";
+import { AiFillLike } from "react-icons/ai";
+
+
+
+
 
 const ChefRecipe = () => {
     const [chef, setChef] = useState({});
@@ -38,9 +45,30 @@ const ChefRecipe = () => {
                         <div className='ml-12'>
                             <h2 className="text-3xl font-semibold mb-2">{name}</h2>
                             <p className='text-gray-500 mb-2 w-96'><small>{bio}</small></p>
-                            <p className='italic'>Years of experience: {years_of_experience}</p>
-                            <p className='italic '>Numbers of recipes: {num_recipes}</p>
-                            <p className='italic'>Likes: {likes}</p>
+                            {/*  */}
+                            <ul>
+                                <li className='flex'>
+                                    <strong className='flex items-center gap-2 font-medium'>
+                                        <HiBriefcase></HiBriefcase>
+                                        <span>Years of experience:</span>
+                                    </strong>
+                                    <span className='ml-12'>{years_of_experience}</span>
+                                </li>
+                                <li className='flex'>
+                                    <strong className='flex items-center gap-2 font-medium'>
+                                        <BsFillBagPlusFill></BsFillBagPlusFill>
+                                        <span>Numbers of recipes:</span>
+                                    </strong>
+                                    <span className='ml-12'>{num_recipes}</span>
+                                </li>
+                                <li className='flex'>
+                                    <strong className='flex items-center justify-between gap-2 font-medium'>
+                                        <AiFillLike></AiFillLike>
+                                        <span> Likes:</span>
+                                    </strong>
+                                    <span className='ml-12'>{likes}</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

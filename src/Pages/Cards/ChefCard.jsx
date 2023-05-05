@@ -13,9 +13,14 @@ const ChefCard = () => {
 
     return (
         <div className='px-4 sm:px-6 lg:px-16 my-16'>
-            <h1 className='text-center font-semibold text-2xl'>
-                TOP CHEF'S
-            </h1>
+            <div className='my-5 text-center'>
+                <p className='text-green-500 font-serif text-lg md:text-xl mb-2'>
+                    Expert and Professional
+                </p>
+                <h1 className='text-center font-semibold text-2xl'>
+                    TOP CHEF'S
+                </h1>
+            </div>
 
             <div className='lg:grid lg:grid-cols-3 gap-4'>
                 {

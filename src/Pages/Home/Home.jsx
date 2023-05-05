@@ -10,8 +10,8 @@ const Home = () => {
     return (
         <div>
             <HomeBanner></HomeBanner>
-            <ChefCard></ChefCard>
             <DeliciousRecipe></DeliciousRecipe>
+            <ChefCard></ChefCard>
             <RecipeProgram></RecipeProgram>
         </div>
     );

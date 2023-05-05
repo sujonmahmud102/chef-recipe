@@ -58,8 +58,12 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error.message)
-                if (error.message === 'Firebase: Error (auth/user-not-found).') {
-                    setError('User not found with this email')
+                if (error.message === 'Firebase: Error (auth/invalid-email).') {
+                    setError('Please provide valid email format')
+                }
+
+                else if (error.message === 'Firebase: Error (auth/user-not-found).') {
+                    setError('User not found for this email')
                 }
 
                 else if (error.message === 'Firebase: Error (auth/wrong-password).') {

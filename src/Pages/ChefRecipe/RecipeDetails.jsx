@@ -1,28 +1,10 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeDetails = () => {
-    const [disabled, setDisabled] = useState(false);
     const recipe = useLoaderData();
     const { name, ingredients, cooking_method, rating, image } = recipe;
 
-    // toast
-    const notify = () => toast.success('Added to this recipe on favorite', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-    });
-
-    const handleDisabled = () => {
-        setDisabled(!disabled);
-    }
     
     return (
         <div className='m-16 lg:flex items-center justify-around'>
@@ -33,8 +15,6 @@ const RecipeDetails = () => {
                         {name}
                     </h3>
                     <p className='text-center my-5'>Ratings: {rating}</p>
-                    <button onClick={() => { notify(), handleDisabled() }} disabled={disabled} className="btn btn-outline btn-secondary ">Add To Favorite</button>
-                    <ToastContainer />
                 </div>
             </div>
             <div className='gap-5 mt-8 md:pl-16'>

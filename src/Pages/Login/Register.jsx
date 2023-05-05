@@ -62,13 +62,13 @@ const Register = () => {
             .catch(error => {
                 console.log(error.message)
                 if (error.message === 'Firebase: Error (auth/invalid-email).') {
-                    setError('Please provide valid email')
+                    setError('Please provide valid email format')
                 }
                 else if (error.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
                     setError('Password should be at least 6 characters')
                 }
                 else if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
-                    setError('Already account created with this email')
+                    setError('Already account created for this email')
                 }
                 else {
                     setError('')
