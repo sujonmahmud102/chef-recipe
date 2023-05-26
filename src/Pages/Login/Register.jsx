@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-    const { createdByEmailPass, createdByGoogle, createdByGithub, updateUserInfo } = useContext(AuthContext);
+    const { createdByEmailPass, createdByGoogle, createdByGithub, updateUserInfo, handleEmailVerify } = useContext(AuthContext);
     const [error, setError] = useState('')
     const [passwordType, setPasswordType] = useState('password');
 
@@ -50,6 +50,7 @@ const Register = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 notify();
+                handleEmailVerify();
                 setError('');
                 form.reset();
                 // update profile
