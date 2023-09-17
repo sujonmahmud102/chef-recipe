@@ -20,7 +20,7 @@ const About = () => {
                 <p className="text-lg text-justify mb-4">If you have any questions or would like to learn more about our company, please don't hesitate to contact us.</p>
                 <ul className="list-disc mb-6 pl-5">
                     <li>Phone: 555-1234</li>
-                    <li>Email: info@company.com</li>
+                    <li>Email: sujonmahmud102@gmail.com</li>
                     <li>Address: 123 Main Street, Anytown USA</li>
                 </ul>
             </div>
